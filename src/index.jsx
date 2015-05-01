@@ -69,13 +69,13 @@ export default React.createClass({
   },
 
   componentWillMount() {
-    document.addEventListener('click', this.closeMenuIfClickedOutside);
+    document.addEventListener('click', this.closeOptionsIfClickedOutside);
   },
   
   componentWillUnmount() {
-    document.removeEventListener('click', this.closeMenuIfClickedOutside);
+    document.removeEventListener('click', this.closeOptionsIfClickedOutside);
   },
-  closeMenuIfClickedOutside(e) {
+  closeOptionsIfClickedOutside(e) {
     if (!this.state.isOpen) return;
     let input = this.refs.input.getDOMNode();
     let options = this.refs.options.getDOMNode();
@@ -84,7 +84,7 @@ export default React.createClass({
     if (eventOccuredOutsideInput && eventOccuredOutsideOptions) this.setState({isOpen: false});
   },
 
-  clickedOutsideElement: function(element, e) {
+  clickedOutsideElement(element, e) {
     let eventTarget = e.target;
     while (eventTarget != null) {
       if (eventTarget === element) return false;
