@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "webpack-dev-server  --port 8091"
+  },
+  "dependencies": {
+    "react": "^0.13.2",
+    "whatwg-fetch": "^0.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.2.6",
+    "babel-loader": "^5.0.0",
+    "webpack": "^1.8.11",
+    "webpack-dev-server": "^1.8.2"
+  }
+}

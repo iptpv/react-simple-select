@@ -1,0 +1,22 @@
+.react-select {
+  position: relative;
+}
+
+.react-select._up {
+  z-index: 1000;
+}
+
+.react-select__input {
+  width: 100%;
+}
+
+.react-select__options {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.react-select__options._hide {
+  display: none;
+}
