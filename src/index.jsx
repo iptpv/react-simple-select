@@ -80,7 +80,7 @@ export default React.createClass({
     let input = this.refs.input.getDOMNode();
     let options = this.refs.options.getDOMNode();
     let eventOccuredOutsideInput = this.clickedOutsideElement(input, e);
-    let eventOccuredOutsideOptions = this.clickedOutsideElement(options, et);
+    let eventOccuredOutsideOptions = this.clickedOutsideElement(options, e);
     if (eventOccuredOutsideInput && eventOccuredOutsideOptions) this.setState({isOpen: false});
   },
 
