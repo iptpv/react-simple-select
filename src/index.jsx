@@ -80,7 +80,7 @@ export default React.createClass({
     let input = this.refs.input.getDOMNode();
     let options = this.refs.options.getDOMNode();
     let eventOccuredOutsideInput = this.clickedOutsideElement(input, e);
-    let eventOccuredOutsideOptions = this.clickedOutsideElement(options, e);
+    let eventOccuredOutsideOptions = this.clickedOutsideElement(options, et);
     if (eventOccuredOutsideInput && eventOccuredOutsideOptions) this.setState({isOpen: false});
   },
 
@@ -113,7 +113,7 @@ export default React.createClass({
   },
 
   selectOnEnter(e) {
-    if (!e.target.value) {
+    if (this.clickedOutsideElement(this.refs.input.getDOMNode(), e)) {
       this.setState({currentItem: e.target.innerText});
     } else if (this.state.isOpen) {
       this.setState({currentItem: this.refs.options.getDOMNode().childNodes[0].innerText});
@@ -129,13 +129,13 @@ export default React.createClass({
   },
 
   focusNext(e) {
-    if (e.target.value) {
+    if (!this.clickedOutsideElement(this.refs.input.getDOMNode(), e)) {
       this.refs.options.getDOMNode().childNodes[0].focus();
     }
   },
 
   click(e) {
-    if (!e.target.value) {
+    if (this.clickedOutsideElement(this.refs.input.getDOMNode(), e)) {
       this.setState({currentItem: e.target.innerText});
       this.hideOptions();
     }
